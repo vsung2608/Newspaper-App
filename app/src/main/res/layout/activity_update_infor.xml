@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#312D2D"
     android:layout_marginTop="40dp"
-    tools:context=".UpdateInforActivity">
+    tools:context=".auth.UpdateInforActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -65,20 +65,16 @@
                     <ImageView
                         android:id="@+id/imgAvatar"
                         android:layout_width="120dp"
+                        android:scaleType="centerCrop"
                         android:layout_height="120dp" />
 
                     <ImageButton
                         android:id="@+id/btnAddPhoto"
-                        android:layout_width="118dp"
-                        android:layout_height="match_parent"
-                        android:layout_alignEnd="@id/imgAvatar"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_alignBottom="@id/imgAvatar"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginLeft="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginRight="4dp"
-                        android:layout_marginBottom="0dp"
+                        android:layout_alignEnd="@id/imgAvatar"
+                        android:layout_margin="4dp"
                         android:background="@drawable/background_rounded"
                         android:src="@android:drawable/ic_menu_camera" />
                 </RelativeLayout>
@@ -121,7 +117,9 @@
                         android:hint="Ngày sinh"
                         android:inputType="date"
                         android:textColor="#ffffff"
+                        android:focusable="false"
                         android:textColorHint="#aaaaaa" />
+
 
                     <EditText
                         android:id="@+id/etGender"
@@ -145,7 +143,7 @@
                         android:textColorHint="#aaaaaa" />
 
                     <EditText
-                        android:id="@+id/etAdress"
+                        android:id="@+id/etAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
@@ -156,7 +154,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnRegister"
+                    android:id="@+id/btnUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginHorizontal="15dp"

@@ -3,14 +3,13 @@ package com.example.newspaper.views.panels;
 import android.content.Context;
 import android.view.LayoutInflater;
 
-import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.newspaper.R;
-import com.example.newspaper.ui.adapters.StateFragmentAdapter;
-import com.example.newspaper.ui.fragments.FragmentCategory;
-import com.example.newspaper.ui.fragments.FragmentHome;
-import com.example.newspaper.ui.fragments.FragmentUtil;
+import com.example.newspaper.user.adapters.StateFragmentAdapter;
+import com.example.newspaper.user.fragments.FragmentCategory;
+import com.example.newspaper.user.fragments.FragmentHome;
+import com.example.newspaper.user.fragments.FragmentUtil;
 import com.realgear.multislidinguppanel.BasePanelView;
 import com.realgear.multislidinguppanel.MultiSlidingUpPanelLayout;
 import com.realgear.readable_bottom_bar.ReadableBottomBar;

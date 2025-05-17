@@ -1,10 +1,14 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.newspaper"
     compileSdk = 35
+
 
     defaultConfig {
         applicationId = "com.example.newspaper"
@@ -34,6 +38,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -65,4 +72,12 @@ dependencies {
 
     implementation (libs.jbcrypt)
 
+    implementation(libs.mpandroidchart)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    implementation(libs.legacy.support.v4)
+
+    implementation("com.google.firebase:firebase-auth:22.3.0")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("jp.wasabeef:richeditor-android:2.0.0")
 }

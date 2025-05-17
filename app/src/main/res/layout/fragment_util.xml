@@ -17,6 +17,7 @@
 
             <!-- Thông tin người dùng -->
             <LinearLayout
+                android:id="@+id/user_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -26,11 +27,10 @@
                 android:paddingStart="8dp">
 
                 <ImageView
+                    android:id="@+id/avatar"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/ic_user"
-                    android:background="@drawable/ic_user"
-                    android:padding="8dp" />
+                    android:src="@drawable/ic_user"/>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -41,6 +41,7 @@
                     android:layout_marginStart="12dp">
 
                     <TextView
+                        android:id="@+id/full_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Hoài Nam Đỗ"
@@ -49,6 +50,7 @@
                         android:textColor="#FFFFFF" />
 
                     <TextView
+                        android:id="@+id/email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="hoainam0660@gmail.com"

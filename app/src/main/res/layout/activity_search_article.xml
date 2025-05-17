@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchArticleActivity"
+    tools:context=".user.activities.SearchArticleActivity"
+    android:background="@color/bg_color1"
+    android:layout_marginTop="40dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -27,7 +29,7 @@
             android:contentDescription="Quay lại" />
 
         <TextView
-            android:id="@+id/header_title"
+            android:id="@+id/keyword"
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="wrap_content"

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsPointActivity"
+    tools:context=".user.activities.NewsPointActivity"
     android:layout_marginTop="40dp"
     android:background="@color/bg_color1"
     android:orientation="vertical">
@@ -62,7 +62,7 @@
 
     <!-- Highlights Content -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/highlightRecyclerView"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_news_point_view"

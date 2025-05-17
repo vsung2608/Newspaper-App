@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#212121"
-        android:padding="15dp">
+        android:paddingHorizontal="15dp"
+        android:paddingTop="10dp">
 
         <!-- Category and Time -->
         <LinearLayout
@@ -21,7 +22,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/item_category"
+                android:id="@+id/category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pháp luật"
@@ -35,7 +36,7 @@
                 android:textColor="@android:color/darker_gray" />
 
             <TextView
-                android:id="@+id/item_time"
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -52,29 +53,28 @@
             android:layout_marginTop="8dp">
 
             <TextView
-                android:id="@+id/item_title"
-                android:layout_width="0dp"
+                android:id="@+id/title"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.6"
                 android:text="Bị CSGT khống chế, người đàn ông được 3 người hết mình 'giải cứu'"
                 android:textColor="@android:color/white"
                 android:textSize="17sp"
                 android:textStyle="bold"
+                android:lineSpacingExtra="4dp"
                 android:maxLines="3"
                 android:ellipsize="end" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_image"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="0.38"
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="8dp"
                 android:scaleType="centerCrop"/>
         </LinearLayout>
 
         <!-- Description -->
         <TextView
-            android:id="@+id/item_description"
+            android:id="@+id/sumary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

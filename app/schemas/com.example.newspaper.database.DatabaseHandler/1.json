@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1555a60382dcc3bac85efe530f056867",
+    "identityHash": "f65fe605446610b5a90f8767932b1532",
     "entities": [
       {
         "tableName": "article_table",
@@ -112,7 +112,7 @@
       },
       {
         "tableName": "comment_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `articleId` INTEGER, `userId` INTEGER, `content` TEXT, `createdAt` INTEGER, `updatedAt` INTEGER, FOREIGN KEY(`articleId`) REFERENCES `article_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`userId`) REFERENCES `user_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `articleId` INTEGER, `userId` INTEGER, `content` TEXT, `createdAt` TEXT, `updatedAt` TEXT, FOREIGN KEY(`articleId`) REFERENCES `article_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`userId`) REFERENCES `user_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -137,12 +137,12 @@
           {
             "fieldPath": "createdAt",
             "columnName": "createdAt",
-            "affinity": "INTEGER"
+            "affinity": "TEXT"
           },
           {
             "fieldPath": "updatedAt",
             "columnName": "updatedAt",
-            "affinity": "INTEGER"
+            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
@@ -279,7 +279,7 @@
       },
       {
         "tableName": "notification_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `articleId` INTEGER, `isRead` INTEGER, `createdAt` INTEGER, FOREIGN KEY(`userId`) REFERENCES `user_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`articleId`) REFERENCES `article_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `articleId` INTEGER, `isRead` INTEGER, `createdAt` TEXT, FOREIGN KEY(`userId`) REFERENCES `user_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`articleId`) REFERENCES `article_table`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -304,7 +304,7 @@
           {
             "fieldPath": "createdAt",
             "columnName": "createdAt",
-            "affinity": "INTEGER"
+            "affinity": "TEXT"
           }
         ],
         "primaryKey": {
@@ -607,7 +607,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1555a60382dcc3bac85efe530f056867')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f65fe605446610b5a90f8767932b1532')"
     ]
   }
 }

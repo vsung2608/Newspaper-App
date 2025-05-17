@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/bg_color1"
     android:layout_marginTop="40dp"
-    tools:context=".SettingActivity">
+    tools:context=".user.activities.SettingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -375,6 +375,41 @@
 
                 <ImageView
                     android:id="@+id/nut8"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_next"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                android:alpha="0.4"/>
+
+            <LinearLayout
+                android:id="@+id/logout_icon"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_logout"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="16dp"
+                    android:text="Đăng xuất"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp" />
+
+                <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/ic_next"/>
