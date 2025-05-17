@@ -6,24 +6,46 @@ import androidx.lifecycle.LiveData;
 
 import com.example.newspaper.common.database.DatabaseHandler;
 import com.example.newspaper.common.database.dao.ArticleDao;
+import com.example.newspaper.common.database.dao.NotificationDao;
+import com.example.newspaper.common.database.dao.UserDao;
 import com.example.newspaper.common.models.Article;
+import com.example.newspaper.common.models.Notification;
 import com.example.newspaper.common.pojo.ArticleWithCategory;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.concurrent.Executors;
 
 public class ArticleRepository {
     private ArticleDao articleDao;
+    private UserDao userDao;
+    private NotificationDao notificationDao;
 
     public ArticleRepository(Context context) {
         DatabaseHandler dbh = DatabaseHandler.getInstance(context);
 
         this.articleDao = dbh.getArticleDao();
+        this.userDao = dbh.getUserDao();
+        this.notificationDao = dbh.getNotificationDao();
     }
 
     public void insert(Article article) {
         Executors.newSingleThreadExecutor().execute(() -> {
-            this.articleDao.insert(article);
+            long articleId = articleDao.insert(article);
+
+            List<Integer> userIds = userDao.getUserIds();
+
+            Instant now = Instant.now();
+
+            for (Integer userId : userIds) {
+                Notification notification = new Notification();
+                notification.setUserId(userId);
+                notification.setArticleId((int) articleId);
+                notification.setRead(false);
+                notification.setCreatedAt(now);
+
+                notificationDao.insert(notification);
+            }
         });
     }
 

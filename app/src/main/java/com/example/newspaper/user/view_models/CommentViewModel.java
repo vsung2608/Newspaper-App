@@ -18,6 +18,7 @@ public class CommentViewModel extends AndroidViewModel {
     private final MutableLiveData<List<CommentWithUser>> comments = new MutableLiveData<>();
 
     private final MutableLiveData<List<CommentWithUser>> allComments = new MutableLiveData<>();
+    private final MutableLiveData<Integer> count = new MutableLiveData<>();
     public CommentViewModel(@NonNull Application application) {
         super(application);
         repository = new CommentRepository(application);
@@ -31,6 +32,11 @@ public class CommentViewModel extends AndroidViewModel {
     public LiveData<List<CommentWithUser>> getAllComment(int articleId) {
         repository.getAllComments(articleId).observeForever(allComments::setValue);
         return allComments;
+    }
+
+    public LiveData<Integer> count(){
+        repository.countComment().observeForever(count::setValue);
+        return count;
     }
 
     public void insert(Comment comment){

@@ -26,6 +26,7 @@ import com.example.newspaper.admin.view_models.ArticleManagerViewModel;
 import com.example.newspaper.admin.view_models.CategoryManagerViewModel;
 import com.example.newspaper.common.models.Article;
 import com.example.newspaper.user.view_models.CategoryViewModel;
+import com.example.newspaper.user.view_models.UserViewModel;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ import jp.wasabeef.richeditor.RichEditor;
 public class AddOrEditArticle extends AppCompatActivity {
     ArticleManagerViewModel viewModel;
     CategoryManagerViewModel categoryViewModel;
+    UserViewModel userViewModel;
     EditText edtTitle, edtThumbnail, edtSummary;
     AutoCompleteTextView edtCategory;
     RichEditor editorContent;
@@ -58,6 +60,7 @@ public class AddOrEditArticle extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(ArticleManagerViewModel.class);
         categoryViewModel = new  ViewModelProvider(this).get(CategoryManagerViewModel.class);
+        userViewModel = new  ViewModelProvider(this).get(UserViewModel.class);
 
         mapping();
 

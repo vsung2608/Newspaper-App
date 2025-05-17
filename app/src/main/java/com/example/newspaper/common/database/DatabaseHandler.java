@@ -14,6 +14,7 @@ import com.example.newspaper.common.database.dao.ArticleDao;
 import com.example.newspaper.common.database.dao.CategoryDao;
 import com.example.newspaper.common.database.dao.CommentDao;
 import com.example.newspaper.common.database.dao.EmotionDao;
+import com.example.newspaper.common.database.dao.NotificationDao;
 import com.example.newspaper.common.database.dao.ReadHistoryDao;
 import com.example.newspaper.common.database.dao.SavedArticleDao;
 import com.example.newspaper.common.database.dao.SearchHistoryDao;
@@ -57,6 +58,7 @@ public abstract class DatabaseHandler extends RoomDatabase {
     public abstract CommentDao getCommentDao();
     public abstract SavedArticleDao getSavedArticleDao();
     public abstract ReadHistoryDao getReadHistoryDao();
+    public abstract NotificationDao getNotificationDao();
 
     public static DatabaseHandler getInstance(Context context){
         if(instance == null){

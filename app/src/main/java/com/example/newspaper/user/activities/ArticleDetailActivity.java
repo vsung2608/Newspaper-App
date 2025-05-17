@@ -42,6 +42,7 @@ import com.example.newspaper.user.view_items.ArticleViewItem;
 import com.example.newspaper.user.view_models.ArticleViewModel;
 import com.example.newspaper.user.view_models.CommentViewModel;
 import com.example.newspaper.user.view_models.EmotionViewModel;
+import com.example.newspaper.user.view_models.NotificationViewModel;
 import com.example.newspaper.user.view_models.ReadHistoryViewModel;
 import com.example.newspaper.user.view_models.SavedArticleViewModel;
 import com.example.newspaper.user.view_models.UserViewModel;
@@ -63,12 +64,13 @@ public class ArticleDetailActivity extends AppCompatActivity {
     private CommentViewModel commentViewModel;
     private SavedArticleViewModel savedArticleViewModel;
     private ReadHistoryViewModel readHistoryViewModel;
+    private NotificationViewModel notificationViewModel;
     private ImageView thumbnail, authorAvatar, like, creative, unique, heart, comment, send, save;
     private TextView category, title, authorName, summary, publishedAt, content, likeCount, creativeCount, uniqueCount, heartCount;
     private BottomSheetDialog commentsDialg;
     private Dialog dialog;
     private MaterialButton confirm, cancel;
-    TextView message;
+    TextView message, commentCount, commentCountInDialog;
     EditText commentText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         commentViewModel = new ViewModelProvider(this).get(CommentViewModel.class);
         savedArticleViewModel = new ViewModelProvider(this).get(SavedArticleViewModel.class);
         readHistoryViewModel = new ViewModelProvider(this).get(ReadHistoryViewModel.class);
+        notificationViewModel = new ViewModelProvider(this).get(NotificationViewModel.class);
 
         mapping();
         SharedPreferences prefs = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
@@ -114,6 +117,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
                 });
             }
         });
+
+        int notificationId = getIntent().getIntExtra("notificationId", -1);
+        if(notificationId != -1) notificationViewModel.setIsRead(notificationId);
 
         setDialog();
 
@@ -191,6 +197,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
                             .readAt(Instant.now())
                     .build());
         }
+
+        commentViewModel.count().observe(this, count -> commentCount.setText(String.format("BÌNH LUẬN (%d)", count)));
     }
 
     public void mapping(){
@@ -203,6 +211,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         summary = findViewById(R.id.sumary);
         content = findViewById(R.id.content);
         publishedAt = findViewById(R.id.publishedAt);
+        commentCount = findViewById(R.id.commentCount);
 
         like = findViewById(R.id.like_icon);
         creative = findViewById(R.id.creative_icon);
@@ -388,6 +397,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
         commentsDialg = new BottomSheetDialog(this);
         View dialogView = getLayoutInflater().inflate(R.layout.menu_comment, null);
         commentsDialg.setContentView(dialogView);
+        commentCountInDialog = commentsDialg.findViewById(R.id.commentCountInDialog);
+        commentViewModel.count().observe(this, count -> commentCountInDialog.setText(String.format("Bình luận (%d)", count)));
 
         ImageButton closeButton = dialogView.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(v -> commentsDialg.dismiss());

@@ -34,4 +34,8 @@ public class CommentRepository {
             commentDao.insert(comment);
         });
     }
+
+    public LiveData<Integer> countComment(){
+        return commentDao.count();
+    };
 }

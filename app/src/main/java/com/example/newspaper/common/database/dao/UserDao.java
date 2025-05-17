@@ -45,4 +45,7 @@ public interface UserDao {
 
     @Query("SELECT COUNT(*) > 0 FROM user_table WHERE email = :email")
     LiveData<Boolean> checkEmailExistsLive(String email);
+
+    @Query("SELECT id FROM user_table WHERE role = 'USER'")
+    List<Integer> getUserIds();
 }

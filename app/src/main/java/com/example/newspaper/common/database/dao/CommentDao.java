@@ -21,4 +21,7 @@ public interface CommentDao {
 
     @Query("SELECT * FROM comment_table WHERE articleId = :id ORDER BY createdAt DESC")
     LiveData<List<CommentWithUser>> getAllComment(int id);
+
+    @Query("SELECT COUNT(*) FROM comment_table")
+    LiveData<Integer> count();
 }
