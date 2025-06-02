@@ -56,10 +56,8 @@ public interface ArticleDao {
     void increaseViewCount(int articleId);
 
     @Query("SELECT * FROM article_table WHERE " +
-            "title LIKE :keyword1 OR content LIKE :keyword1 " +
-            "OR title LIKE :keyword2 OR content LIKE :keyword2 " +
-            "OR title LIKE :keyword3 OR content LIKE :keyword3 " +
-            "OR title LIKE :keyword4 OR content LIKE :keyword4 " +
+            "title LIKE :keyword1 OR title LIKE :keyword2 " +
+            "OR title LIKE :keyword3 OR title LIKE :keyword4 " +
             "ORDER BY publishedAt DESC")
     List<ArticleWithCategory> searchArticleByKeywords(String keyword1, String keyword2, String keyword3, String keyword4);
 }

@@ -34,8 +34,8 @@ public class CommentViewModel extends AndroidViewModel {
         return allComments;
     }
 
-    public LiveData<Integer> count(){
-        repository.countComment().observeForever(count::setValue);
+    public LiveData<Integer> count(int articleId){
+        repository.countComment(articleId).observeForever(count::setValue);
         return count;
     }
 

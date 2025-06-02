@@ -1,6 +1,7 @@
 package com.example.newspaper.user.activities;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -74,18 +75,21 @@ public class SearchActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
+        SharedPreferences prefs = getApplication().getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
+        int userId = (int) prefs.getLong("userId", -1);
         textKeyword.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE ||
                     (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)) {
                 String keyword = textKeyword.getText().toString().trim();
                 Intent intent = new Intent(SearchActivity.this, SearchArticleActivity.class);
                 intent.putExtra("keyword", keyword);
-                repository.insert(SearchHistory.builder()
-                                .keyword(keyword)
-                                .userId(1)
-                                .searchAt(LocalDate.now())
-                        .build());
+                if(userId != -1){
+                    repository.insert(SearchHistory.builder()
+                            .keyword(keyword)
+                            .userId(userId)
+                            .searchAt(LocalDate.now())
+                            .build());
+                }
                 startActivity(intent);
                 return true;
             }

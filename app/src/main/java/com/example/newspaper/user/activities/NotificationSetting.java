@@ -3,6 +3,7 @@ package com.example.newspaper.user.activities;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
@@ -18,6 +19,7 @@ public class NotificationSetting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.setting_notification);
 
         notificationSwitch = findViewById(R.id.switch_notifications);

@@ -28,7 +28,7 @@ public interface SearchHistoryDao {
     @Query("DELETE FROM search_history_table")
     void deleteAlls();
 
-    @Query("SELECT * FROM search_history_table WHERE :userId ORDER BY id DESC")
+    @Query("SELECT * FROM search_history_table WHERE userId = :userId ORDER BY id DESC")
     LiveData<List<SearchHistory>> getSearchHistoryByUserId(int userId);
 
     @Query("SELECT keyword FROM search_history_table GROUP BY keyword ORDER BY COUNT(*) DESC LIMIT 10")

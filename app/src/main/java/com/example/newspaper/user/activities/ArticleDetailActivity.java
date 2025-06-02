@@ -198,7 +198,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
                     .build());
         }
 
-        commentViewModel.count().observe(this, count -> commentCount.setText(String.format("BÌNH LUẬN (%d)", count)));
+        commentViewModel.count(id).observe(this, count -> commentCount.setText(String.format("BÌNH LUẬN (%d)", count)));
     }
 
     public void mapping(){
@@ -398,7 +398,7 @@ public class ArticleDetailActivity extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(R.layout.menu_comment, null);
         commentsDialg.setContentView(dialogView);
         commentCountInDialog = commentsDialg.findViewById(R.id.commentCountInDialog);
-        commentViewModel.count().observe(this, count -> commentCountInDialog.setText(String.format("Bình luận (%d)", count)));
+        commentViewModel.count(id).observe(this, count -> commentCountInDialog.setText(String.format("Bình luận (%d)", count)));
 
         ImageButton closeButton = dialogView.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(v -> commentsDialg.dismiss());

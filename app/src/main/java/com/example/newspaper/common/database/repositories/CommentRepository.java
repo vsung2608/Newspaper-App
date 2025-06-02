@@ -35,7 +35,7 @@ public class CommentRepository {
         });
     }
 
-    public LiveData<Integer> countComment(){
-        return commentDao.count();
+    public LiveData<Integer> countComment(int articleId){
+        return commentDao.count(articleId);
     };
 }
